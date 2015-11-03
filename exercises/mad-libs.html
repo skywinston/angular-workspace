@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300italic,300,400italic,600,600italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <title>Angular Mad Libs</title>
+    <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  </head>
+  <body>
+    <form id="madlib">
+      <label for="boysName">Boy's Name</label>
+      <input ng-model="boysName" id="boysName" type="text" name="boysName" value="">
+      <label for="adjective">Adjective</label>
+      <input ng-model="adjective" id="adjective" type="text" name="adjective" value="">
+      <label for="pluralNoun">Plural Noun</label>
+      <input id="pluralNoun" ng-model="pluralNoun" type="text" name="pluralNoun" value="">
+      <label for="insectPlural">An insect, plural</label>
+      <input ng-model="insectPlural" id='insectPlural' type="text" name="insectPlural" value="">
+      <label for="pluralNoun2">Plural Noun</label>
+      <input ng-model="pluralNoun2" id="pluralNoun2" type="text" name="pluralNoun2" value="">
+      <label for="verbEndingInS">A verb ending in "s"</label>
+      <input type="text" name="verbEndingInS" ng-model='verbEndingInS' id='verbEndingInS' value="">
+    </form>
+    <div class="madlibs">
+      <h3>I'm in love with <span>{{boysName | uppercase}}</span>. He's so <span>{{adjective}}</span>! He has big flat <span>{{pluralNoun}}</span>, and when our <spant>{{insectPlural}}</span> meet, I get <span>{{pluralNoun2}}</span> in my stomach. I've fallen for him like a ton of <span>{{verbEndingInS}}</span>, and he shuffles for me, too. But I think he's got another girlfriend. What should I do?</h3>
+    </div>
+  </body>
+</html>
