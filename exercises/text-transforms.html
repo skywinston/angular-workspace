@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>Text Transforms with Angular</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  </head>
+  <body>
+    <h3>Please say something:</h3>
+    <input ng-model="youSaid" type="text" name="saying" value="">
+    <br>
+    <p>Yelling: <strong>{{youSaid | uppercase}}</strong></p>
+    <p>Whispering: <em>{{youSaid | lowercase}}</em></p>
+  </body>
+</html>
