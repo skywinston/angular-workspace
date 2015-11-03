@@ -43,3 +43,11 @@ button {
   border: none;
   border-radius: 4px;
 }
+
+.text-danger {
+  color: #F44336;
+}
+
+.text-success {
+  color: #4CAF50;
+}
