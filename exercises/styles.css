@@ -14,8 +14,14 @@ body {
   flex-flow: column;
 }
 
-.flex-col.center {
+.flex-col.center,
+.flex-row.center {
   align-items: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row;
 }
 
 /* END Layout Classes */
@@ -30,6 +36,13 @@ body {
 
 .card-image {
   width: 128px;
+  margin: 8px;
+}
+
+.chip {
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius: 2px;
   margin: 8px;
 }
 
@@ -85,4 +98,33 @@ select {
 
 .text-warning {
   color: #FFC107;
+}
+
+.text-primary {
+  color: #2196F3;
+}
+
+.theme-danger {
+  background-color: #F44336;
+  color: white;
+}
+
+.theme-success {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.theme-warning {
+  background-color: #FFC107;
+  color: white;
+}
+
+.theme-primary {
+  background-color: #2196F3;
+  color: white;
+}
+
+.theme-default {
+  background-color: #FAFAFA;
+  color: #424242;
 }

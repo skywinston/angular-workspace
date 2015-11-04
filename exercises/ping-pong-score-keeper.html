@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html ng-app="scoreKeeper">
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300italic,300,400italic,600,600italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <title>Ping Pong Score Keeper</title>
+    <script type="text/javascript">
+      angular.module('scoreKeeper', [])
+      .controller('scoreKeeperController', function($scope){
+        $scope.gameActive = true;
+        $scope.serves = 0;
+        $scope.resetGame = function(){
+          $scope.player1.score = 0;
+          $scope.player1.won = false;
+          $scope.player1.lost = false
+          $scope.player1.serving = true;
+          $scope.player2.score = 0;
+          $scope.player2.serving = false;
+          $scope.player2.won = false;
+          $scope.player2.lost = false;
+          $scope.serves = 0;
+          $scope.gameActive = true;
+        }
+
+        $scope.player1 = {
+          score : 0,
+          serving: true,
+          won: false,
+          lost: false,
+          wins: 0,
+          addPoint: function(){
+            if(this.won === false && this.lost === false){
+              this.score++;
+              $scope.serves += 1;
+
+              if(this.score === 11){
+                $scope.gameActive = false;
+                this.wins += 1;
+                this.won = true;
+                $scope.player2.lost = true;
+              }
+              if($scope.serves % 2 === 0 && this.serving === true){
+                this.serving = false;
+                $scope.player2.serving = true;
+              } else if ($scope.serves % 2 === 0 && this.serving === false){
+                this.serving = true;
+                $scope.player2.serving = false;
+              }
+            }
+          }
+        };
+
+        $scope.player2 = {
+          score : 0,
+          serving: false,
+          won: false,
+          lost: false,
+          wins: 0,
+          addPoint: function(){
+            if(this.won === false && this.lost === false){
+              this.score++;
+              $scope.serves += 1;
+              if(this.score === 11){
+                $scope.gameActive = false;
+                this.wins++;
+                this.won = true;
+                $scope.player1.lost = true;
+              }
+              if($scope.serves % 2 === 0 && this.serving === true){
+                this.serving = false;
+                $scope.player1.serving = true;
+              } else if ($scope.serves % 2 === 0 && this.serving === false){
+                this.serving = true;
+                $scope.player1.serving = false;
+              }
+            }
+          }
+        };
+      });
+    </script>
+  </head>
+  <body ng-controller="scoreKeeperController">
+    <div class="flex-col center">
+      <h1>Ping Pong Score Keeper</h1>
+      <div class="flex-row">
+        <div ng-class="{'theme-success': player1.won, 'theme-danger':player1.lost, 'theme-primary': gameActive}" ng-click="player1.addPoint()" class="card flex-col center" style="margin-right: 16px">
+          <h3>Player 1</h3>
+          <h1 style="font-size: 100px; margin:0px">{{player1.score}}</h1>
+          <h4 ng-show="player1.serving">Serving</h4>
+        </div>
+        <div ng-class="{'theme-success': player2.won, 'theme-danger':player2.lost, 'theme-primary': gameActive}" ng-click="player2.addPoint()" class="card theme-primary flex-col center">
+          <h3>Player 2</h3>
+          <h1 style="font-size: 100px; margin:0px">{{player2.score}}</h1>
+          <h4 ng-show="player2.serving">Serving</h4>
+        </div>
+      </div>
+      <button ng-click="resetGame()" type="button" name="resetGame" style="margin:24px">New Game</button>
+      <div class="flex-row">
+        <div class="chip theme-default flex-col center">
+          <h4>Player 1 Wins</h4>
+          <h2 style="margin:0px">{{player1.wins}}</h2>
+        </div>
+        <div class="chip theme-default flex-col center">
+          <h4>Player 2 Wins</h4>
+          <h2 style="margin:0px">{{player2.wins}}</h2>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
