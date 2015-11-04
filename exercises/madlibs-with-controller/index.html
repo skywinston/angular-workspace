@@ -2,23 +2,24 @@
 <html ng-app>
   <head>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300italic,300,400italic,600,600italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../styles.css" media="screen" title="no title" charset="utf-8">
     <meta charset="utf-8">
-    <title>Angular Mad Libs</title>
-    <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="main.js" charset="utf-8"></script>
+    <title></title>
   </head>
-  <body ng-controller="madLibsController">
+  <body>
     <form id="madlib">
       <label for="boysName">Boy's Name</label>
-      <input ng-model="madlibs.boysName" id="boysName" type="text" name="boysName" value="">
+      <input ng-model="boysName" id="boysName" type="text" name="boysName" value="">
       <label for="adjective">Adjective</label>
-      <input ng-model="madlibs.adjective" id="adjective" type="text" name="adjective" value="">
+      <input ng-model="adjective" id="adjective" type="text" name="adjective" value="">
       <label for="pluralNoun">Plural Noun</label>
-      <input ng-pluralize count='' id="pluralNoun" ng-model="madlibs.pluralNoun" type="text" name="pluralNoun" value="">
+      <input id="pluralNoun" ng-model="pluralNoun" type="text" name="pluralNoun" value="">
       <label for="insectPlural">An insect, plural</label>
-      <input ng-pluralize count='' ng-model="madlibs.insectPlural" id='insectPlural' type="text" name="insectPlural" value="">
+      <input ng-model="insectPlural" id='insectPlural' type="text" name="insectPlural" value="">
       <label for="pluralNoun2">Plural Noun</label>
-      <input ng-pluralize count='' ng-model="madlibs.pluralNoun2" id="pluralNoun2" type="text" name="pluralNoun2" value="">
+      <input ng-model="pluralNoun2" id="pluralNoun2" type="text" name="pluralNoun2" value="">
       <label for="verbEndingInS">A verb ending in "s"</label>
       <input type="text" name="verbEndingInS" ng-model='verbEndingInS' id='verbEndingInS' value="">
     </form>
