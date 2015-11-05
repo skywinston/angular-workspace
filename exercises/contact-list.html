@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="contactApp">
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300italic,300,400italic,600,600italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <title>Contact List</title>
+    <script type="text/javascript">
+      angular.module('contactApp', [])
+      .controller('contactListController', function($scope){
+        $scope.contacts = [
+          {name: 'Sky Winston', email: 'skywinston@gmail.com', phone: '303-819-0060'},
+          {name: 'Uncle Andy', email: 'uncleandy@uncleandysplayhouse', phone: '1-800-BASEMNT'},
+          {name: 'David Yoakum', email: 'dyoakum@gmail.com', phone: '303-555-1212'}
+        ];
+        $scope.newContact = {
+          name: '',
+          email: '',
+          phone: ''
+        };
+        $scope.addContact = function(){
+          $scope.contacts.push($scope.newContact);
+          $scope.newContact = {
+            name: '',
+            email: '',
+            phone: ''
+          };
+          document.getElementById('name').focus();
+        }
+      })
+    </script>
+  </head>
+  <body ng-controller="contactListController">
+    <h1>Contacts App</h1>
+    <form class="flex-row" ng-submit="addContact()">
+      <div class="flex-col">
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" ng-model='newContact.name' value="">
+      </div>
+      <div class="flex-col">
+        <label for="email">Email</label>
+        <input id="email" type="text" name="email" ng-model="newContact.email" value="">
+      </div>
+      <div class="flex-col">
+        <label for="phone">Phone</label>
+        <input id="phone" type="tel" name="phone" ng-model="newContact.phone" value="">
+      </div>
+      <input class="theme-success" type="submit" name="submit" value="Add Contact" style="align-self: flex-end">
+    </form>
+    <div class="flex-col" style="margin-bottom: 16px">
+      <strong style="margin-right:8px">Search</strong>
+      <input type="text" name="search" ng-model="search" value="" style="margin:0px;">
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Email
+          </th>
+          <th>
+            Phone
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="contact in contacts | filter:search">
+          <td>
+            {{contact.name}}
+          </td>
+          <td>
+            {{contact.email}}
+          </td>
+          <td>
+            {{contact.phone}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

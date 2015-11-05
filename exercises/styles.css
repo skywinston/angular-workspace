@@ -69,6 +69,11 @@ input:focus {
   border: 1px solid orange;
 }
 
+.flex-row,.flex-col > input {
+  width: 184px;
+  margin-right: 16px;
+}
+
 button {
   display: block;
   width: 200px;
@@ -86,6 +91,29 @@ button {
 select {
   font-size: 24px;
   width: 256px;
+}
+
+table {
+  border-collapse: collapse;
+  display: table;
+  width: 100%;
+}
+
+th {
+  border-bottom: 2px solid #BDBDBD;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+td {
+  /*border-top: 1px solid #BDBDBD;*/
+  border-bottom: 1px solid #BDBDBD;
+  padding: 0.6rem;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background: #F5F5F5;
 }
 
 .text-danger {
