@@ -1,10 +1,37 @@
+// Variables
+
+$materialPaper: #FAFAFA;
+$materialOffWhite: #F5F5F5;
+$derritBlue: #03A9F4;
+$warning: #FF9800;
+
+// Mixins
+
+@mixin card {
+  background-color: $materialPaper;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding: 16px;
+}
+
+@mixin pamphlet {
+  @include card;
+  padding: 32px;
+}
+
+// Status
+
 .theme-warning {
-  background-color: #ff9800;
-  color: #212121; }
+  background-color: $warning;
+  color: #212121;
+}
 
 .theme-primary {
-  background-color: whitesmoke;
-  color: #424242; }
+  background-color: $materialOffWhite;
+  color: #424242;
+}
+
+// Standard Elements
 
 body {
   display: flex;
@@ -13,41 +40,57 @@ body {
   color: #212121;
   margin: 0px;
   padding: 0px;
-  background-color: #E0E0E0; }
+  background-color: #E0E0E0;
+}
 
 h1 {
   font-size: 36px;
-  font-weight: 300; }
+  font-weight: 300;
+}
 
 i {
-  margin-right: 8px; }
+  margin-right: 8px;
+}
 
 label {
-  text-align: right; }
-  label i {
+  text-align: right;
+  i {
     margin-left: 8px;
-    color: #424242; }
+    color: #424242;
+  }
+}
+
+
+// Layout
 
 .flex-row {
   display: flex;
-  flex-flow: row; }
+  flex-flow: row;
+}
 
 .flex-col {
   display: flex;
-  flex-flow: column; }
-  .flex-col input {
-    margin-bottom: 16px; }
+  flex-flow: column;
+  input {
+    margin-bottom: 16px;
+  }
+}
 
 .flex-col.center,
 .flex-row.center {
-  align-items: center; }
+  align-items: center;
+}
 
 .flex-row > .centered,
 .flex-col > .centered {
-  align-self: center; }
+  align-self: center;
+}
 
 .flex-col > .right {
-  align-self: flex-end; }
+  align-self: flex-end;
+}
+
+// Components
 
 .appnav {
   display: flex;
@@ -60,9 +103,10 @@ label {
   background-color: #03A9F4;
   color: #FAFAFA;
   border-bottom: 1px solid #039BE5;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   padding: 4px 24px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 .appnav > button {
   flex-flow: row;
@@ -73,25 +117,35 @@ label {
   border: 1px solid #0288D1;
   border-radius: 4px;
   background-color: #039BE5;
-  box-shadow: inset 0px 0px 0px 1px rgba(41, 182, 246, 0.5);
+  box-shadow: inset 0px 0px 0px 1px rgba(41,182,246,.5);
   padding: 8px 16px;
   font-weight: 600;
-  font-size: 12px; }
+  font-size: 12px;
+}
 
 .appnav > button > i {
-  margin-right: 8px; }
+  margin-right: 8px;
+}
 
 .container {
   padding: 24px;
-  /*align-self: center;*/ }
+  /*align-self: center;*/
+}
 
 .logo {
-  margin: 0px 24px 0px 0px; }
+  margin: 0px 24px 0px 0px;
+}
 
-.btn-group button {
-  margin-right: 16px; }
-  .btn-group button:last-child {
-    margin-right: 0px; }
+.btn-group {
+  button {
+    margin-right: 16px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+// Forms & Inputs
 
 input {
   font-family: 'Noto Sans', sans-serif;
@@ -103,9 +157,11 @@ input {
   border-bottom: 2px solid #BDBDBD;
   outline: none;
   background: none;
-  width: 512px; }
-  input:focus {
-    border-bottom: 2px solid #03a9f4; }
+  width: 512px;
+  &:focus {
+    border-bottom: 2px solid $derritBlue;
+  }
+}
 
 textarea {
   box-sizing: border-box;
@@ -118,62 +174,75 @@ textarea {
   padding: 8px;
   background: none;
   width: 512px;
-  resize: vertical; }
-  textarea:focus {
-    border: 2px solid #03a9f4; }
+  resize: vertical;
+  &:focus {
+    border: 2px solid $derritBlue;
+  }
+}
 
 button {
-  background-color: #fafafa;
-  border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  padding: 16px;
+  @include card;
   font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
   border: none;
   outline: none;
-  background-color: #03a9f4;
+  background-color: $derritBlue;
   color: white;
-  width: 128px; }
+  width: 128px;
+}
+
+// IDs
 
 #newPost {
-  background-color: #fafafa;
-  border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  padding: 16px;
-  padding: 32px; }
-  #newPost h1 {
+  @include pamphlet;
+  h1 {
     text-align: right;
     margin-top: 0px;
-    margin-bottom: .75rem; }
-  #newPost button {
-    margin-top: 16px; }
+    margin-bottom: .75rem;
+  }
+  button {
+    margin-top: 16px;
+  }
+}
+
+// Animations
 
 .animated {
   -webkit-animation-duration: .4s;
   animation-duration: .4s;
   -webkit-animation-fill-mode: both;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+}
 
 @-webkit-keyframes fadeInDown {
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0); }
+    transform: translate3d(0, -100%, 0);
+  }
 
   100% {
     opacity: 1;
     -webkit-transform: none;
-    transform: none; } }
+    transform: none;
+  }
+}
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0); }
+    transform: translate3d(0, -100%, 0);
+  }
 
   100% {
     opacity: 1;
     -webkit-transform: none;
-    transform: none; } }
+    transform: none;
+  }
+}
+
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown; }
+  animation-name: fadeInDown;
+}
