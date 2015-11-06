@@ -1,4 +1,4 @@
-var app = angular.module('redditClone', []);
+var app = angular.module('redditClone', ['ngAnimate']);
 app.controller('postsController', function($scope, $http){
 
   $http.get('/api/1/posts').then(function(response){
@@ -14,6 +14,10 @@ app.controller('postsController', function($scope, $http){
   $scope.newPostForm = function(){
     $scope.newPost.visible = true;
     document.getElementById('title').focus();
+  }
+
+  $scope.cancelNewPost = function(){
+    $scope.newPost.visible = false;
   }
 
 });

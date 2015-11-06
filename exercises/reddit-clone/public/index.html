@@ -3,9 +3,11 @@
   <head>
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="stylesheets/style.css" media="screen" title="no title" charset="utf-8">
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-animate.min.js" charset="utf-8"></script>
     <script src="./javascripts/postsController.js" charset="utf-8"></script>
     <title>Derrit</title>
   </head>
@@ -15,7 +17,7 @@
       <button type="button" name="button" ng-click="newPostForm()"><i class="material-icons">add</i>New Post</button>
     </div>
     <div class="container flex-col">
-      <form id='newPost' class="flex-col centered" action="index.html" method="post" ng-submit="createPost()" ng-show="newPost.visible" ng-class="{'animated fadeInDown': newPost.visible}">
+      <form id='newPost' class="flex-col centered animated" action="index.html" method="post" ng-submit="createPost()" ng-show="newPost.visible" ng-class="{'fadeInDown': newPost.visible, 'fadeOutUp':!newPost.visible}">
         <h1>New Post</h1>
         <label for="title" class='flex-row right'> Title
           <i class="material-icons">book</i>
@@ -34,7 +36,7 @@
           <textarea id="description" name="description" value="" ng-model="newPost.description"></textarea>
         </label>
         <div class="flex-row right btn-group">
-          <button class="theme-primary" type="button" name="cancel">Cancel</button>
+          <button class="theme-primary" type="button" name="cancel" ng-click="cancelNewPost()">Cancel</button>
           <button type="submit" name="submit">Create Post</button>
         </div>
       </form>
