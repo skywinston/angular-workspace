@@ -31,6 +31,14 @@ $warning: #FF9800;
   color: #424242;
 }
 
+.text-danger {
+  color: #D50000;
+}
+
+.text-success {
+  color: #4CAF50;
+}
+
 // Standard Elements
 
 body {
@@ -41,6 +49,7 @@ body {
   margin: 0px;
   padding: 0px;
   background-color: #E0E0E0;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -90,6 +99,10 @@ label {
   align-self: flex-end;
 }
 
+.stretch {
+  align-self: stretch;
+}
+
 // Components
 
 .appnav {
@@ -119,6 +132,7 @@ label {
   background-color: #039BE5;
   box-shadow: inset 0px 0px 0px 1px rgba(41,182,246,.5);
   padding: 8px 16px;
+  margin-right: 24px;
   font-weight: 600;
   font-size: 12px;
 }
@@ -128,7 +142,7 @@ label {
 }
 
 .container {
-  padding: 24px;
+  padding: 0px 24px 24px 24px;
   /*align-self: center;*/
 }
 
@@ -142,6 +156,48 @@ label {
     &:last-child {
       margin-right: 0px;
     }
+  }
+}
+
+.post {
+  @include card;
+  width: 768px;
+  margin-bottom: 16px;
+  &:first-child {
+    margin-top: 24px;
+  }
+  h2{
+    margin: 0px 0px 8px 0px;
+    color: #9E9E9E;
+    font-size: 32px;
+    font-weight: 300;
+  }
+  .post-image {
+    width: 200px;
+    height: 200px;
+    margin: 0px 16px;
+    border-radius: 4px;
+  }
+  p {
+    color: #757575;
+  }
+}
+
+
+#vote-buttons {
+  justify-content: space-around;
+  width: 48px;
+  height: 80px;
+  border: 1px solid #BDBDBD;
+  border-radius: 4px;
+  margin-left: 16px;
+  i {
+    color: #757575;
+    margin: 0px;
+    cursor: pointer;
+  }
+  h3 {
+    margin: 0px;
   }
 }
 
@@ -191,10 +247,16 @@ button {
   width: 128px;
 }
 
+select {
+  width: 128px;
+  margin-left: 24px;
+}
+
 // IDs
 
 #newPost {
   @include pamphlet;
+  margin-top: 24px;
   h1 {
     text-align: right;
     margin-top: 0px;

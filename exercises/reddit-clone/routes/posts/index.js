@@ -10,4 +10,17 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.post('/', function(req, res, next){
+  posts.insert(req.body).then(function(post){
+    res.json(post)
+  });
+})
+
+router.post('/:id/update', function(req, res, next){
+  // console.log(req.body);
+  posts.updateById(req.params.id, req.body).then(function(update){
+    res.json(update);
+  });
+});
+
 module.exports = router;
