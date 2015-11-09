@@ -26,6 +26,10 @@ app.config(function($routeProvider, $locationProvider){
     template: '<h3>The result of your calculation is:</h3><h1 class="text-primary"><strong>{{result}}</strong></h1>',
     controller: 'CalculatorController'
   })
+  .when('/math/:operation', {
+    template:'<h3>The result of your calculation is:</h3><h1 class="text-primary"><strong>{{result}}</strong></h1>',
+    controller: 'CalculatorController'
+  })
   .otherwise({
     redirectTo: '/'
   });

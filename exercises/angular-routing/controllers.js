@@ -73,7 +73,7 @@ app.controller('ResumeController', function($scope){
 });
 
 // Route-Based Calculator
-app.controller('CalculatorController', function($scope, $routeParams){
+app.controller('CalculatorController', function($scope, $routeParams, $location){
   if($routeParams.operation === 'divide' && $routeParams.num2 === '0') {
     $scope.result = "You can't divide by zero silly.";
     return;
