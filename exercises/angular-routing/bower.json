@@ -1,0 +1,18 @@
+{
+  "name": "angular-routing",
+  "homepage": "https://github.com/skywinston/angular-workspace",
+  "authors": [
+    "Sky Winston <skywinston@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
