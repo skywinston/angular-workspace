@@ -10,4 +10,8 @@ app.config(function($routeProvider){
     templateUrl: 'partials/dogs.html',
     controller: 'DogsController'
   })
+  .otherwise({
+    templateUrl: 'partials/home.html',
+    controller: 'HomeController'
+  })
 });
