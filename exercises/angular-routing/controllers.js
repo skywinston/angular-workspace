@@ -1,3 +1,11 @@
+app.controller('GlobalController', function($scope, $location){
+  $scope.activeNav = '/';
+  $scope.setActiveNav = function(path){
+    $scope.activeNav = path;
+  };
+
+});
+
 app.controller('HomeController', function($scope){
   $scope.message = "Welcome to the Home Page.";
 });
@@ -6,7 +14,8 @@ app.controller('DogsController', function($scope){
   $scope.message = "You are now on the Dogs Page.";
 });
 
-app.controller('ProjectsController', function($scope){
+app.controller('ProjectsController', function($scope, $rootScope, $location){
+
   $scope.projects = [
     {
       name: "DooBot",
@@ -39,7 +48,6 @@ app.controller('ProjectsController', function($scope){
 });
 
 app.controller('BioController', function($scope){
-  console.log("fofofofofofofo");
   $scope.name = "Sky Winston";
   $scope.story = "Sky was born to make software...";
 });
