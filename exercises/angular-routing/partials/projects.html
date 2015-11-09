@@ -1,0 +1,9 @@
+<div ng-repeat='project in projects'>
+  <h1>{{project.name}}</h1>
+  <h3>{{project.year}}</h3>
+  <h5>Technologies Used:</h5>
+  <ul>
+    <li ng-repeat='technology in project.technologies'>{{technology}}</li>
+  </ul>
+  <hr>
+</div>
