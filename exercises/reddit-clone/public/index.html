@@ -54,7 +54,7 @@
             <h3 ng-class="{'text-success': post.votes > 0, 'text-danger': post.votes < 0}">{{post.votes}}</h3>
             <i class="material-icons" ng-click="downvote(post)" data-id="{{post._id}}">keyboard_arrow_down</i>
           </div>
-          <div class='post-image' style="background: url({{post.imageURL}}) no-repeat center top" alt=""></div>
+          <div class='post-image' style="background: url({{post.imageURL}}) no-repeat center top; background-size: cover" alt=""></div>
           <div class="flex-col stretch">
             <h2>{{post.title}}</h2>
             <small>Posted on <strong>{{post.date}}</strong> by <strong>{{post.author}}</strong></small>

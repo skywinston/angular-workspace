@@ -120,10 +120,11 @@ label {
     font-weight: 300; }
   .post .post-image {
     width: 200px;
-    height: 200px;
+    height: 150px;
     margin: 0px 16px;
     border-radius: 4px; }
   .post p {
+    font-size: 14px;
     color: #757575; }
 
 #vote-buttons {
