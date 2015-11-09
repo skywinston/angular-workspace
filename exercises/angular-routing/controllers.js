@@ -70,4 +70,26 @@ app.controller('ResumeController', function($scope){
       duration: "3 Years, on and off."
     }
   ];
-})
+});
+
+// Route-Based Calculator
+app.controller('CalculatorController', function($scope, $routeParams){
+  if($routeParams.operation === 'divide' && $routeParams.num2 === '0') {
+    $scope.result = "You can't divide by zero silly.";
+    return;
+  }
+  switch($routeParams.operation){
+    case 'add' :
+      $scope.result = Number($routeParams.num1) + Number($routeParams.num1);
+      break;
+    case 'subtract' :
+      $scope.result = Number($routeParams.num1) - Number($routeParams.num2);
+      break;
+    case 'multiply' :
+      $scope.result = Number($routeParams.num1) * Number($routeParams.num2);
+      break;
+    case 'divide' :
+      $scope.result = Number($routeParams.num1) / Number($routeParams.num2);
+      break;
+  }
+});

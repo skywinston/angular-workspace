@@ -22,9 +22,12 @@ app.config(function($routeProvider, $locationProvider){
     templateUrl: 'partials/dogs.html',
     controller: 'DogsController'
   })
+  .when('/math/:operation/:num1/:num2', {
+    template: '<h3>The result of your calculation is:</h3><h1 class="text-primary"><strong>{{result}}</strong></h1>',
+    controller: 'CalculatorController'
+  })
   .otherwise({
-    templateUrl: 'partials/projects.html',
-    controller: 'ProjectsController'
+    redirectTo: '/'
   });
   $locationProvider.html5Mode(true);
 });
